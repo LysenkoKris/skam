@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../assets/logo-default.svg';
-import styles from './Header.module.css';
+import logo from '../../../assets/logo-default.svg';
+import styles from './Logo.module.css';
 
 const Logo: React.FC = () => {
   return (

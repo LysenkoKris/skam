@@ -1,0 +1,36 @@
+.textField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 800px;
+}
+  
+.label {
+    font-size: 1.125rem;
+    font-weight: 500;
+    width: fit-content;
+}
+  
+.input {
+    padding: 12px 16px;
+    border: 1px solid rgb(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-family: "Montserrat", serif;
+    font-size: 1.125rem;
+
+}
+
+.input:hover {
+    outline: none;
+    border: 1px solid rgb(0, 0, 0, 0.3);       
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid rgb(0, 0, 0, 0.5);       
+}
+  
+.input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}

@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 2.5rem 6vw;
+    position: sticky;
+    bottom: 0;
+}
+
+.div {
+    width: 208px;
+}

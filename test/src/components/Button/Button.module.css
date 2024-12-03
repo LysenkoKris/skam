@@ -1,0 +1,59 @@
+.button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    width: fit-content;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+    
+}
+
+.primary {
+    background-color: #999;
+    color: #FFF;
+}
+
+.primary:hover {
+    background-color: #747474;
+}
+
+.secondary {
+    outline: 1px solid #747474;
+    color: #747474;
+    background: none;
+}
+
+.secondary:hover {
+    outline: 1px solid #575757;
+    background-color: rgb(87, 87, 87, 0.06);
+    color: #575757;
+}
+
+.delete {
+    background-color: #D4160A;
+    color: #FFF;
+}
+
+.delete:hover {
+    background-color: #D20D00;
+}
+
+.small {
+    padding: 6px 20px;
+    font-size: 0.875rem;
+}
+
+.medium {
+    padding: 8px 24px;
+    font-size: 1rem;
+}
+
+.large {
+    padding: 12px 40px;
+    font-size: 1.125rem;
+}

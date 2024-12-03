@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -35,4 +36,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.Page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0px 6vw;
+  height: 100%;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

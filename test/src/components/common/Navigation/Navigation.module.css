@@ -1,0 +1,19 @@
+.nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 2.75rem;
+        a {
+            text-decoration: none;
+            color: #2F2F2F;
+            font-size: 1.125rem;
+        }
+
+        a:hover {
+            color: #111111;
+        }
+
+    }
+}
