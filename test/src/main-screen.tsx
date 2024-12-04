@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './components/Button/Button';
 import TextField from './components/TextField/TextField';
 import TextArea from './components/TextArea/TextArea';
+import Example from './components/Example/Example';
 
 export default function MainScreen():JSX.Element {
 	const [username, setUsername] = useState('');
@@ -34,6 +35,7 @@ export default function MainScreen():JSX.Element {
 			<Button text="Button" size="large" />
 			<Button text="Button" size="small" />
 			<Button text="Button" disabled />
+			<Example />
 			<form className="Form">
 			<TextField
 				label="Имя пользователя:"
@@ -63,6 +65,7 @@ export default function MainScreen():JSX.Element {
 				rows={5}
 			/>
 			</form>
+			
 		</main>
 	);
 }

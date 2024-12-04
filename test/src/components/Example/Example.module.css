@@ -1,0 +1,75 @@
+.draggable {
+    width: fit-content;
+    padding: 8px 20px;
+    border: 1px solid #F0F0F0;
+    border-radius: 5px;
+    font-size: 1rem;
+    height: fit-content;
+    background-color: #fff;
+}
+
+.titleSubdomains {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    span {
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+}
+
+.subdomains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 192px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-content: flex-start;
+}
+
+.droppables {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.dndContent {
+    max-width: 814px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.frequencyVerification {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.droppableLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1.125rem;
+}
+
+
+
+.droppable {
+    padding: 8px;
+    border: 2px dashed rgb(50, 50, 50,0.4);
+    border-radius: 4px;
+    height: 226px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 8px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
