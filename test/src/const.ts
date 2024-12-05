@@ -1,6 +1,8 @@
 export enum AppRoute {
 	Root = '/',
-	Login = '/login',
 	Comparison = '/comparison',
-	Monitoring = '/monitoring'
+	Monitoring = '/monitoring', 
+	Login = '/login',
+	ResetPassword= '/resetPassword',
+	Register= '/register'
 }
