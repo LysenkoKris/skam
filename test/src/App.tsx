@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppRoute } from './const'
-import MainScreen from './main-screen';
-import ComparisonScreen from './comparison-screen';
+import MainScreen from './pages/main-screen/main-screen';
+import ComparisonScreen from './pages/comparison-screen/comparison-screen';
 import Header from './components/Header/Header';
 import './App.css';
 import Footer from './components/Footer/Footer';
