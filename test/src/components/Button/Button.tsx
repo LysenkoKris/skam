@@ -7,18 +7,17 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'delete' | 'link'; // Дополнительный проп для варианта кнопки
   size?: 'small' | 'medium' | 'large'; // Дополнительный проп для размера кнопки
   disabled?: boolean; // Дополнительный проп для состояния disabled
-  onClick?: () => void; // Добавляем пропс onClick
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, variant = 'primary', size = 'medium', disabled = false, onClick }) => {
+export default function Button({ text, variant = 'primary', size = 'medium', disabled = false, onClick,}: ButtonProps) {
   return (
     <button
       className={`${styles.button} ${styles[variant]} ${styles[size]}`}
       disabled={disabled}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {text}
     </button>
   );
-};
-
-export default Button;
+}

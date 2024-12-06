@@ -3,31 +3,38 @@ import Button from '../../components/Button/Button';
 import TextField from '../../components/TextField/TextField';
 import TextArea from '../../components/TextArea/TextArea';
 import Example from '../../components/Example/Example';
+import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
+import { AppRoute, AuthorizationStatus } from '../../const'
 import InputNumber from '../../components/InputNumber/InputNumber';
 import FileDownloader from '../../components/FileDownloader/FileDownloader';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
-export default function MainScreen(): JSX.Element {
+interface MainScreenProps {
+  authorizationStatus: AuthorizationStatus;
+  email: string | null;
+  onLogout: () => void;
+}
+
+export default function MainScreen({
+  authorizationStatus,
+  email,
+  onLogout,
+}: MainScreenProps): JSX.Element {
 	const [username, setUsername] = useState('');
-	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [domains, setDomains] = useState('');
 
 	const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setUsername(event.target.value);
-	};
-
-	const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setEmail(event.target.value);
+	 	setUsername(event.target.value);
 	};
 
 	const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setPassword(event.target.value);
+	  setPassword(event.target.value);
 	};
 
 	const handleDomainsChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-		setDomains(event.target.value);
+	  setDomains(event.target.value);
 	};
 
 	const [value, setValue] = useState(3);
@@ -50,7 +57,11 @@ export default function MainScreen(): JSX.Element {
 
 	return (
 		<div>
-			<Header title="My React App" subtitle="Welcome to the best app ever!" />
+			<Header 
+				authorizationStatus={authorizationStatus}
+        email={email}
+        onLogout={onLogout} 
+			/>
 			<main className="Page">
 				<h1>Hello world!!</h1>
 				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
@@ -80,13 +91,6 @@ export default function MainScreen(): JSX.Element {
 						placeholder=""
 					/>
 					<TextField
-						label="Адрес электронной почты:"
-						value={email}
-						onChange={handleEmailChange}
-						type="email"
-						placeholder="Введите почту"
-					/>
-					<TextField
 						label="Пароль:"
 						value={password}
 						onChange={handlePasswordChange}
@@ -101,8 +105,12 @@ export default function MainScreen(): JSX.Element {
 						rows={5}
 					/>
 				</form>
-
 			</main>
+      <Footer title="My React App" subtitle="Welcome to the best app ever!" />
 		</div>
+
 	);
 }
+
+
+

@@ -1,0 +1,54 @@
+.registerForm {
+    width: 40%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+.userName{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.prompt{
+    text-align: left;
+    margin: 0;
+}
+
+.textFields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.link {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin: 5px 0;
+}
+
+.link:hover {
+    color: #0056b3;
+}
+
+.actionsElements{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
