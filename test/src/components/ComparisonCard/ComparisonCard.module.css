@@ -1,0 +1,26 @@
+.card {
+    width: 260px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.cardTitle {
+    align-self: center;
+}
+
+.cardText {
+    margin: 0;
+    font-size: 2rem;
+}

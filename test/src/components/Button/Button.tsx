@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 // Определение типа для пропсов компонента
 interface ButtonProps {
   text: string;
-  variant?: 'primary' | 'secondary' | 'delete'; // Дополнительный проп для варианта кнопки
+  variant?: 'primary' | 'secondary' | 'delete' | 'link'; // Дополнительный проп для варианта кнопки
   size?: 'small' | 'medium' | 'large'; // Дополнительный проп для размера кнопки
   disabled?: boolean; // Дополнительный проп для состояния disabled
   onClick?: () => void;

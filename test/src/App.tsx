@@ -8,7 +8,6 @@ import RegisterScreen from './pages/registration/register-screen';
 import ResetPasswordScreen from './pages/registration/reset-password-screen';
 import Header from './components/Header/Header';
 import './App.css';
-import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -30,7 +29,6 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				{/* <Header title="My React App" subtitle="Welcome to the best app ever!" /> */}
 				<Routes>
 					<Route 
 						path={AppRoute.Root} 
@@ -47,7 +45,6 @@ function App() {
 					<Route path={AppRoute.Register} element={<RegisterScreen/>} />
 					<Route path={AppRoute.ResetPassword} element={<ResetPasswordScreen />} />
 				</Routes>
-				{/* <Footer title="My React App" subtitle="Welcome to the best app ever!" /> */}
 			</div>
 		</Router>
 	);
