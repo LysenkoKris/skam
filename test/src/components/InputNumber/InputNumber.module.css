@@ -1,0 +1,73 @@
+.inputNumberContainer {
+position: relative;
+width: 81px;
+}
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type="number"] {
+-moz-appearance: textfield;
+}
+
+.inputNumber {
+width: 100%;
+padding: 8px 12px;
+font-size: 16px;
+border: 1px solid rgb(0, 0, 0, 0.15);
+border-radius: 4px;
+text-align: justify;
+box-sizing: border-box;
+font-family: "Montserrat", serif;
+}
+
+.buttonsContainer {
+position: absolute;
+top: 0;
+right: 4px;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: transparent;
+;
+}
+
+.buttonUp,
+.buttonDown {
+width: 24px;
+height: 50%;
+font-size: 12px;
+border: none;
+cursor: pointer;
+outline: none;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: transparent;
+}
+
+.buttonUp:hover,
+.buttonDown:hover {
+background-color: #797979;
+}
+
+.buttonUp:active,
+.buttonDown:active {
+background-color: #797979;
+}
+
+.disabled {
+    cursor: not-allowed;
+
+    img {
+        opacity: 0.5;
+    }
+}
+
+.disabled:hover {
+    background-color: transparent;
+    img {
+        opacity: 0.5;
+    }
+}

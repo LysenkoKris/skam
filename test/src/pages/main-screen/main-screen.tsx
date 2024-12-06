@@ -4,6 +4,7 @@ import TextField from '../../components/TextField/TextField';
 import TextArea from '../../components/TextArea/TextArea';
 import Example from '../../components/Example/Example';
 import Header from '../../components/Header/Header';
+import InputNumber from '../../components/InputNumber/InputNumber';
 
 export default function MainScreen(): JSX.Element {
 	const [username, setUsername] = useState('');
@@ -27,11 +28,18 @@ export default function MainScreen(): JSX.Element {
 		setDomains(event.target.value);
 	};
 
+	const [value, setValue] = useState(3);
+
+	const handleChange = (newValue: number) => {
+		setValue(newValue);
+	};
+
 	return (
 		<div>
 			<Header title="My React App" subtitle="Welcome to the best app ever!" />
 			<main className="Page">
 				<h1>Hello world!!</h1>
+				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
 				<Button text="Button" />
 				<Button text="Button" variant="secondary" />
 				<Button text="Button" variant="delete" size="small" />
