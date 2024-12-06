@@ -21,6 +21,10 @@ box-sizing: border-box;
 font-family: "Montserrat", serif;
 }
 
+.inputNumber:hover {
+    border: 1px solid rgb(0, 0, 0, 0.3);
+}
+
 .buttonsContainer {
 position: absolute;
 top: 0;

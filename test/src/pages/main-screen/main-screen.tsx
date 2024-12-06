@@ -5,6 +5,7 @@ import TextArea from '../../components/TextArea/TextArea';
 import Example from '../../components/Example/Example';
 import Header from '../../components/Header/Header';
 import InputNumber from '../../components/InputNumber/InputNumber';
+import FileDownloader from '../../components/FileDownloader/FileDownloader';
 
 export default function MainScreen(): JSX.Element {
 	const [username, setUsername] = useState('');
@@ -34,12 +35,19 @@ export default function MainScreen(): JSX.Element {
 		setValue(newValue);
 	};
 
+	const files = [
+		{ value: '/files/2-12-2024.xlsx', label: 'Проверка 2.12.2024' },
+		{ value: '/files/20-11-2024.xlsx', label: 'Проверка 20.11.2024' },
+		{ value: '/files/4-11-2024.xlsx', label: 'Проверка 4.11.2024' },
+	];
+
 	return (
 		<div>
 			<Header title="My React App" subtitle="Welcome to the best app ever!" />
 			<main className="Page">
 				<h1>Hello world!!</h1>
 				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
+				<FileDownloader files={files} />
 				<Button text="Button" />
 				<Button text="Button" variant="secondary" />
 				<Button text="Button" variant="delete" size="small" />
