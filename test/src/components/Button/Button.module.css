@@ -4,6 +4,9 @@
     cursor: pointer;
     font-weight: 500;
     width: fit-content;
+    font-family: "Montserrat", serif;
+    line-height: 142%;
+    letter-spacing: 0.3px;
 }
 
 .button:disabled {
@@ -11,6 +14,21 @@
     pointer-events: none;
     cursor: not-allowed;
     
+}
+
+.small {
+    padding: 6px 20px;
+    font-size: 0.875rem;
+}
+
+.medium {
+    padding: 8px 24px;
+    font-size: 1rem;
+}
+
+.large {
+    padding: 12px 40px;
+    font-size: 1.125rem;
 }
 
 .primary {
@@ -43,17 +61,13 @@
     background-color: #D20D00;
 }
 
-.small {
-    padding: 6px 20px;
-    font-size: 0.875rem;
+.link {
+    background: none;
+    color: #000AFC;
+    padding: 0;
 }
 
-.medium {
-    padding: 8px 24px;
-    font-size: 1rem;
-}
-
-.large {
-    padding: 12px 40px;
-    font-size: 1.125rem;
+.link:hover {
+    text-decoration: underline;
+    color: #0007BB;
 }

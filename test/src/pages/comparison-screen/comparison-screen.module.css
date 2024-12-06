@@ -1,0 +1,87 @@
+.comparisonPage {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    gap: 32px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    align-self: flex-start;
+    margin: 0;
+    text-align: start;
+    line-height: 140%;
+}
+
+h4 {
+    max-width: 800px;
+    font-weight: 400;
+    font-size: 1.375rem;
+    margin: 0;
+    text-align: start;
+    line-height: 140%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comparisonInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.comparisonHead {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comparisonLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.errorMessage {
+    margin: 0;
+    text-align: justify;
+    font-size: 1.125rem;
+    color: #FF3939;
+    font-weight: 500;
+}
+
+.comparisonShort {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comparisonText {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comparisonMessage {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.comparisonCards {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.comparisonLong {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 30px;
+}
