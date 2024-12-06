@@ -3,14 +3,14 @@ import Logo from '../../components/common/Logo/Logo'
 import './styles.css';
 
 interface LoginScreenProps {
-    onLogin: (email: string) => void;
+	onLogin: (email: string) => void;
 }
-  
+
 export default function LoginScreen({ onLogin }: LoginScreenProps) {
-    return (
-        <main className='Page'>
-            <Logo />
-            <EntranceForm onLogin={onLogin} />
-        </main>
-    );
+	return (
+		<main className='Registration'>
+			<Logo />
+			<EntranceForm onLogin={onLogin} />
+		</main>
+	);
 }

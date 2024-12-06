@@ -5,36 +5,36 @@ import TextArea from '../../components/TextArea/TextArea';
 import Example from '../../components/Example/Example';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
-import { AppRoute, AuthorizationStatus } from '../../const'
+import { AuthorizationStatus } from '../../const';
 import InputNumber from '../../components/InputNumber/InputNumber';
 import FileDownloader from '../../components/FileDownloader/FileDownloader';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 interface MainScreenProps {
-  authorizationStatus: AuthorizationStatus;
-  email: string | null;
-  onLogout: () => void;
+	authorizationStatus: AuthorizationStatus;
+	email: string | null;
+	onLogout: () => void;
 }
 
 export default function MainScreen({
-  authorizationStatus,
-  email,
-  onLogout,
+	authorizationStatus,
+	email,
+	onLogout,
 }: MainScreenProps): JSX.Element {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [domains, setDomains] = useState('');
 
 	const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-	 	setUsername(event.target.value);
+		setUsername(event.target.value);
 	};
 
 	const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-	  setPassword(event.target.value);
+		setPassword(event.target.value);
 	};
 
 	const handleDomainsChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-	  setDomains(event.target.value);
+		setDomains(event.target.value);
 	};
 
 	const [value, setValue] = useState(3);
@@ -53,14 +53,14 @@ export default function MainScreen({
 
 	const handleProgressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setProgress(Number(event.target.value));
-	  };
+	};
 
 	return (
 		<div>
-			<Header 
+			<Header
 				authorizationStatus={authorizationStatus}
-        email={email}
-        onLogout={onLogout} 
+				email={email}
+				onLogout={onLogout}
 			/>
 			<main className="Page">
 				<h1>Hello world!!</h1>
@@ -81,7 +81,7 @@ export default function MainScreen({
 				<Button text="Button" size="large" />
 				<Button text="Button" size="small" />
 				<Button text="Button" disabled />
-				<Button text="Link Button" variant="link"  onClick={() => alert('Link Button Clicked')} />
+				<Button text="Link Button" variant="link" onClick={() => alert('Link Button Clicked')} />
 				<Example />
 				<form className="Form">
 					<TextField
@@ -106,7 +106,7 @@ export default function MainScreen({
 					/>
 				</form>
 			</main>
-      <Footer title="My React App" subtitle="Welcome to the best app ever!" />
+			<Footer title="My React App" subtitle="Welcome to the best app ever!" />
 		</div>
 
 	);

@@ -3,10 +3,10 @@ import Logo from '../../components/common/Logo/Logo'
 import './styles.css';
 
 export default function ResetPasswordScreen() {
-    return (
-        <main className='Page'>
-            <Logo />
-            <ResetPasswordForm />
-        </main>
-    );
+	return (
+		<main className='Registration'>
+			<Logo />
+			<ResetPasswordForm />
+		</main>
+	);
 }

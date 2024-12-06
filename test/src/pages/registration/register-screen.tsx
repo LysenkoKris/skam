@@ -2,11 +2,15 @@ import RegisterForm from '../../components/register-form/register-form'
 import Logo from '../../components/common/Logo/Logo'
 import './styles.css';
 
-export default function RegisterScreen() {
-    return (
-        <main className='Page'>
-            <Logo />
-            <RegisterForm />
-        </main>
-    );
+interface RegisterScreenProps {
+	onLogin: (email: string) => void;
+}
+
+export default function RegisterScreen({ onLogin }: RegisterScreenProps) {
+	return (
+		<main className='Registration'>
+			<Logo />
+			<RegisterForm onLogin={onLogin} />
+		</main>
+	);
 }
