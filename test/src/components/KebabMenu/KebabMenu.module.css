@@ -1,0 +1,54 @@
+.kebabMenuContainer {
+    position: relative;
+    display: flex;
+    width: 240px;
+  }
+  
+  .kebabButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+
+  }
+  
+  .kebabButton:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+}
+
+  .menu {
+    position: absolute;
+    right: 0;
+    width: 206px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.09);
+    z-index: 1;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .menuItem {
+    display: flex;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #222;
+    font-family: "Montserrat", serif;
+    font-size: 16px;
+    border-radius: 3px;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .menuItem:hover {
+    background-color: #f0f0f0;
+  }

@@ -9,6 +9,7 @@ import { AuthorizationStatus } from '../../const';
 import InputNumber from '../../components/InputNumber/InputNumber';
 import FileDownloader from '../../components/FileDownloader/FileDownloader';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import KebabMenu from '../../components/KebabMenu/KebabMenu';
 
 interface MainScreenProps {
 	authorizationStatus: AuthorizationStatus;
@@ -55,6 +56,14 @@ export default function MainScreen({
 		setProgress(Number(event.target.value));
 	};
 
+	const handleEdit = () => {
+		alert('Редактировать');
+	  };
+	
+	  const handleDelete = () => {
+		alert('Удалить');
+	  };
+
 	return (
 		<div>
 			<Header
@@ -67,6 +76,7 @@ export default function MainScreen({
 				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
 				<FileDownloader files={files} />
 				<ProgressBar value={progress} max={100} />
+				<KebabMenu onEdit={handleEdit} onDelete={handleDelete} />
 				<input
 					type="range"
 					min="0"
