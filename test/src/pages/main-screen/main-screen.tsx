@@ -70,6 +70,7 @@ export default function MainScreen(): JSX.Element {
 				<Button text="Button" size="large" />
 				<Button text="Button" size="small" />
 				<Button text="Button" disabled />
+				<Button text="Link Button" variant="link"  onClick={() => alert('Link Button Clicked')} />
 				<Example />
 				<form className="Form">
 					<TextField
