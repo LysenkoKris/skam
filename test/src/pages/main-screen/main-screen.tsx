@@ -3,33 +3,51 @@ import Button from '../../components/Button/Button';
 import TextField from '../../components/TextField/TextField';
 import TextArea from '../../components/TextArea/TextArea';
 import Example from '../../components/Example/Example';
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
+import { AppRoute, AuthorizationStatus } from '../../const'
 
-export default function MainScreen(): JSX.Element {
-	const [username, setUsername] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [domains, setDomains] = useState('');
+interface MainScreenProps {
+  authorizationStatus: AuthorizationStatus;
+  email: string | null;
+  onLogout: () => void;
+}
 
-	const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setUsername(event.target.value);
-	};
+export default function MainScreen({
+  authorizationStatus,
+  email,
+  onLogout,
+}: MainScreenProps): JSX.Element {
+	// const [username, setUsername] = useState('');
+	// const [email, setEmail] = useState('');
+	// const [password, setPassword] = useState('');
+	// const [domains, setDomains] = useState('');
 
-	const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setEmail(event.target.value);
-	};
+	// const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	// 	setUsername(event.target.value);
+	// };
 
-	const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setPassword(event.target.value);
-	};
+	// const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	// 	setEmail(event.target.value);
+	// };
 
-	const handleDomainsChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-		setDomains(event.target.value);
-	};
+	// const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	// 	setPassword(event.target.value);
+	// };
+
+	// const handleDomainsChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+	// 	setDomains(event.target.value);
+	// };
 
 	return (
 		<main className="Page">
+			<Header 
+				authorizationStatus={authorizationStatus}
+        email={email}
+        onLogout={onLogout} 
+			/>
 			<h1>Hello world!!</h1>
-			<Button text="Button" />
+			{/* <Button text="Button" />
 			<Button text="Button" variant="secondary" />
 			<Button text="Button" variant="delete" size="small" />
 			<Button text="Button" size="large" />
@@ -64,8 +82,11 @@ export default function MainScreen(): JSX.Element {
 					placeholder="Если хотите ввести несколько поддоменов, то пречисляйте их с новой строки"
 					rows={5}
 				/>
-			</form>
-
+			</form> */}
+			<Footer title="My React App" subtitle="Welcome to the best app ever!" />
 		</main>
 	);
 }
+
+
+

@@ -6,3 +6,8 @@ export enum AppRoute {
 	ResetPassword= '/resetPassword',
 	Register= '/register'
 }
+
+export enum AuthorizationStatus {
+  Auth ='AUTH',
+  NoAuth = 'NO_AUTH',
+}

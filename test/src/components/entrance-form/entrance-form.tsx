@@ -1,19 +1,39 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AppRoute } from '../../const'; 
 import TextField from '../TextField/TextField';
 import Button from '../Button/Button';
 import styles from './entranceForm.module.css';
 
-export default function EntranceForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+
+interface EntranceFormProps {
+  onLogin: (email: string) => void;
+}
+
+interface FormState {
+  username: string;
+  password: string;
+}
+
+export default function EntranceForm({ onLogin }: EntranceFormProps) {
+  const [formState, setFormState] = useState<FormState>({
+    username: '',
+    password: '',
+  });
+
+  const handleChange = (field: keyof FormState) => (e: ChangeEvent<HTMLInputElement>) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [field]: e.target.value,
+    }));
+  };
 
   const navigate = useNavigate();
 
   const handleEntrance = () => {
-    console.log('Имя пользователя:', username);
-    console.log('Пароль:', password);
+    console.log('Имя пользователя:', formState.username);
+    console.log('Пароль:', formState.password);
+    onLogin(formState.username);
     navigate(AppRoute.Root);
   };
 
@@ -23,15 +43,15 @@ export default function EntranceForm() {
       <div className={styles.textFields}>
         <TextField
             label="Имя пользователя:"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={formState.username}
+            onChange={handleChange('username')}
             placeholder="Введите имя пользователя"
         />
         <TextField
             label="Пароль:"
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formState.password}
+            onChange={handleChange('password')}
             placeholder="Введите пароль"
         />
       </div>
