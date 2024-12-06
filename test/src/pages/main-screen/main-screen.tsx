@@ -6,6 +6,7 @@ import Example from '../../components/Example/Example';
 import Header from '../../components/Header/Header';
 import InputNumber from '../../components/InputNumber/InputNumber';
 import FileDownloader from '../../components/FileDownloader/FileDownloader';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 export default function MainScreen(): JSX.Element {
 	const [username, setUsername] = useState('');
@@ -41,6 +42,12 @@ export default function MainScreen(): JSX.Element {
 		{ value: '/files/4-11-2024.xlsx', label: 'Проверка 4.11.2024' },
 	];
 
+	const [progress, setProgress] = useState(0);
+
+	const handleProgressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setProgress(Number(event.target.value));
+	  };
+
 	return (
 		<div>
 			<Header title="My React App" subtitle="Welcome to the best app ever!" />
@@ -48,6 +55,15 @@ export default function MainScreen(): JSX.Element {
 				<h1>Hello world!!</h1>
 				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
 				<FileDownloader files={files} />
+				<ProgressBar value={progress} max={100} />
+				<input
+					type="range"
+					min="0"
+					max="100"
+					value={progress}
+					onChange={handleProgressChange}
+					style={{ width: '100%', marginTop: '20px' }}
+				/>
 				<Button text="Button" />
 				<Button text="Button" variant="secondary" />
 				<Button text="Button" variant="delete" size="small" />
