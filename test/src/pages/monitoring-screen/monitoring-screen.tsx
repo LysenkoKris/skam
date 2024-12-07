@@ -6,6 +6,7 @@ import styles from './monitoring-screen.module.css';
 import Button from '../../components/Button/Button';
 import Footer from '../../components/Footer/Footer';
 import AddSiteModal from '../../components/AddSiteModal/AddSiteModal';
+import KebabMenu from '../../components/KebabMenu/KebabMenu';
 
 interface MonitoringScreenProps {
   authorizationStatus: AuthorizationStatus;
@@ -37,6 +38,14 @@ export default function MonitoringScreen({
     setSites([...sites, { domain, subdomains }]);
   };
 
+  const handleEdit = (domain: string) => {
+    alert(`Редактировать ${domain}`);
+  };
+
+  const handleDelete = (domain: string) => {
+    setSites(sites.filter((site) => site.domain !== domain));
+  };
+
   return (
     <div>
       <Header
@@ -55,12 +64,12 @@ export default function MonitoringScreen({
                 <span></span>
               </h4>
             </div>
-			<div className={styles.addSiteButton}>
-				{sites.length === 0 && (
-				<p className={styles.noSitesMessage}>Пока нет сайтов на мониторинге</p>
-				)}
-				<Button text="Хотите добавить?" variant="link" size="medium" onClick={handleOpenModal} />
-			</div>
+            <div className={styles.addSiteButton}>
+              {sites.length === 0 && (
+                <p className={styles.noSitesMessage}>Пока нет сайтов на мониторинге</p>
+              )}
+              <Button text="Хотите добавить?" variant="link" size="medium" onClick={handleOpenModal} />
+            </div>
             <AddSiteModal isOpen={isModalOpen} onClose={handleCloseModal} onAddSite={handleAddSite} />
             <div>
               {sites.map((site, index) => (
@@ -71,6 +80,11 @@ export default function MonitoringScreen({
                       <li key={subIndex}>{subdomain}</li>
                     ))}
                   </ul>
+                  <KebabMenu
+                    domain={site.domain}
+                    onEdit={() => handleEdit(site.domain)}
+                    onDelete={() => handleDelete(site.domain)}
+                  />
                 </div>
               ))}
             </div>

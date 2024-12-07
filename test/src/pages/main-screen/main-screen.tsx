@@ -75,7 +75,6 @@ export default function MainScreen({
 				<InputNumber value={value} onChange={handleChange} min={3} max={20} step={1} />
 				<FileDownloader files={files} />
 				<ProgressBar value={progress} max={100} />
-				<KebabMenu onEdit={handleEdit} onDelete={handleDelete} />
 				<input
 					type="range"
 					min="0"

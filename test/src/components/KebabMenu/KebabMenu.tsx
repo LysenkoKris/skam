@@ -3,14 +3,17 @@ import styles from './KebabMenu.module.css';
 import kebab from '../../assets/kebab.svg';
 import del from '../../assets/Delete.svg';
 import edit from '../../assets/Edit.svg';
+import DeleteSiteModal from '../DeleteSiteModal/DeleteSiteModal';
 
 interface KebabMenuProps {
+  domain: string;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-const KebabMenu: React.FC<KebabMenuProps> = ({ onEdit, onDelete }) => {
+const KebabMenu: React.FC<KebabMenuProps> = ({ domain, onEdit, onDelete }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -22,8 +25,17 @@ const KebabMenu: React.FC<KebabMenuProps> = ({ onEdit, onDelete }) => {
   };
 
   const handleDelete = () => {
-    onDelete();
+    setIsDeleteModalOpen(true);
     setIsOpen(false);
+  };
+
+  const handleConfirmDelete = () => {
+    onDelete();
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleCancelDelete = () => {
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -41,6 +53,12 @@ const KebabMenu: React.FC<KebabMenuProps> = ({ onEdit, onDelete }) => {
           </button>
         </div>
       )}
+      <DeleteSiteModal
+        domain={domain}
+        isOpen={isDeleteModalOpen}
+        onClose={handleCancelDelete}
+        onDelete={handleConfirmDelete}
+      />
     </div>
   );
 };
