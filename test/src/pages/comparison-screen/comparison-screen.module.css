@@ -85,3 +85,7 @@ h4 {
     gap: 24px;
     font-size: 30px;
 }
+
+.comparisonLinks {
+    max-width: 800px;
+}

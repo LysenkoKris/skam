@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
 import TextField from '../../components/TextField/TextField';
 import TextArea from '../../components/TextArea/TextArea';
-import Example from '../../components/Example/Example';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { AuthorizationStatus } from '../../const';
@@ -92,7 +91,6 @@ export default function MainScreen({
 				<Button text="Button" size="small" />
 				<Button text="Button" disabled />
 				<Button text="Link Button" variant="link" onClick={() => alert('Link Button Clicked')} />
-				<Example />
 				<form className="Form">
 					<TextField
 						label="Имя пользователя:"

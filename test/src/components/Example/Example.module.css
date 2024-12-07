@@ -37,20 +37,12 @@
 }
 
 .dndContent {
-    max-width: 814px;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.frequencyVerification {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
-    font-size: 1rem;
-    font-weight: 500;
-}
+
 
 .droppableLabel {
     display: flex;
@@ -65,11 +57,11 @@
     padding: 8px;
     border: 2px dashed rgb(50, 50, 50,0.4);
     border-radius: 4px;
-    height: 226px;
+    height: 25vh;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     gap: 8px;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
 }

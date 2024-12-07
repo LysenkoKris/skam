@@ -1,8 +1,11 @@
-body {
-  margin: 0;
+html {
   font-family: "Montserrat", serif;
   font-size: 16px;
   color: #222;
+}
+
+body {
+  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
