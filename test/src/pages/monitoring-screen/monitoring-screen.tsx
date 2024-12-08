@@ -7,6 +7,8 @@ import Button from '../../components/Button/Button';
 import Footer from '../../components/Footer/Footer';
 import AddSiteModal from '../../components/AddSiteModal/AddSiteModal';
 import KebabMenu from '../../components/KebabMenu/KebabMenu';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import FileDownloader from '../../components/FileDownloader/FileDownloader';
 
 interface MonitoringScreenProps {
   authorizationStatus: AuthorizationStatus;
@@ -25,6 +27,7 @@ export default function MonitoringScreen({
   ];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sites, setSites] = useState<{ domain: string; subdomains: string[] }[]>([]);
+  const [expandedDomain, setExpandedDomain] = useState<string | null>(null);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -44,6 +47,18 @@ export default function MonitoringScreen({
 
   const handleDelete = (domain: string) => {
     setSites(sites.filter((site) => site.domain !== domain));
+  };
+
+  const [progress, setProgress] = useState(50);
+
+  const files = [
+    { value: '/files/2-12-2024.xlsx', label: 'Проверка 2.12.2024' },
+    { value: '/files/20-11-2024.xlsx', label: 'Проверка 20.11.2024' },
+    { value: '/files/4-11-2024.xlsx', label: 'Проверка 4.11.2024' },
+  ];
+
+  const handleDomainClick = (domain: string) => {
+    setExpandedDomain((prevDomain) => (prevDomain === domain ? null : domain));
   };
 
   return (
@@ -71,20 +86,24 @@ export default function MonitoringScreen({
               <Button text="Хотите добавить?" variant="link" size="medium" onClick={handleOpenModal} />
             </div>
             <AddSiteModal isOpen={isModalOpen} onClose={handleCloseModal} onAddSite={handleAddSite} />
-            <div>
+            <div className={styles.monitoringDomains}>
               {sites.map((site, index) => (
-                <div key={index}>
-                  <h3>{site.domain}</h3>
-                  <ul>
-                    {site.subdomains.map((subdomain, subIndex) => (
-                      <li key={subIndex}>{subdomain}</li>
-                    ))}
-                  </ul>
-                  <KebabMenu
-                    domain={site.domain}
-                    onEdit={() => handleEdit(site.domain)}
-                    onDelete={() => handleDelete(site.domain)}
-                  />
+                <div
+                  className={`${styles.domain} ${expandedDomain === site.domain ? styles.expanded : ''}`}
+                  key={index}
+                >
+                  <h5 onClick={() => handleDomainClick(site.domain)}>{site.domain} <KebabMenu domain={site.domain} onEdit={() => handleEdit(site.domain)} onDelete={() => handleDelete(site.domain)} /></h5>
+                  {expandedDomain === site.domain && (
+                    <div className={styles.domainContent}>
+                      <ProgressBar value={progress} max={100} />
+                      <div className={styles.subdomains}>
+                        {site.subdomains.map((subdomain, subIndex) => (
+                          <div className={styles.subdomain} key={subIndex}>{subdomain}</div>
+                        ))}
+                      </div>
+                      <FileDownloader files={files} />
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

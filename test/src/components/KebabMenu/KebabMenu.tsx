@@ -19,12 +19,14 @@ const KebabMenu: React.FC<KebabMenuProps> = ({ domain, onEdit, onDelete }) => {
     setIsOpen(!isOpen);
   };
 
-  const handleEdit = () => {
+  const handleEdit = (e: React.MouseEvent) => {
+    e.stopPropagation();
     onEdit();
     setIsOpen(false);
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsDeleteModalOpen(true);
     setIsOpen(false);
   };

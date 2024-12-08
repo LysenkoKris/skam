@@ -1,7 +1,6 @@
 .kebabMenuContainer {
     position: relative;
     display: flex;
-    width: 240px;
   }
   
   .kebabButton {
@@ -23,7 +22,7 @@
 
   .menu {
     position: absolute;
-    right: 0;
+    left: 34px;
     width: 206px;
     background-color: #fff;
     border-radius: 4px;
