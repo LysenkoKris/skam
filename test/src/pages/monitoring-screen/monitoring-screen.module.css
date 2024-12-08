@@ -1,0 +1,102 @@
+.monitoringPage {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 40px;
+    gap: 32px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    align-self: flex-start;
+    margin: 0;
+    text-align: start;
+    line-height: 140%;
+}
+
+h4 {
+    max-width: 800px;
+    font-weight: 400;
+    font-size: 1.375rem;
+    margin: 0;
+    text-align: start;
+    line-height: 140%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.monitoringHead {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.monitoringContent {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.noSitesMessage {
+    margin: 0;
+    text-align: justify;
+    font-size: 1.125rem;
+    color: rgb(34, 34, 34, 0.6);
+}
+
+.addSiteButton {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.monitoringDomains {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.domain {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #F9F9F9;
+    border-radius: 7px;
+    padding: 0px 24px;
+}
+
+.domainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.subdomains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-content: flex-start;
+}
+
+.subdomain {
+    width: fit-content;
+    padding: 4px 16px;
+    border: 1px solid #F4F4F4;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    height: fit-content;
+}
+
+h5 {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding: 20px 0px;
+}

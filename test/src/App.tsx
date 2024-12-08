@@ -6,6 +6,7 @@ import ComparisonScreen from './pages/comparison-screen/comparison-screen';
 import LoginScreen from './pages/registration/login-screen';
 import RegisterScreen from './pages/registration/register-screen';
 import ResetPasswordScreen from './pages/registration/reset-password-screen';
+import MonitoringScreen from './pages/monitoring-screen/monitoring-screen';
 import './App.css';
 
 function App() {
@@ -43,6 +44,16 @@ function App() {
 						path={AppRoute.Comparison}
 						element={
 							<ComparisonScreen
+								authorizationStatus={authorizationStatus}
+								email={email}
+								onLogout={handleLogout}
+							/>
+						}
+					/>
+					<Route
+						path={AppRoute.Monitoring}
+						element={
+							<MonitoringScreen
 								authorizationStatus={authorizationStatus}
 								email={email}
 								onLogout={handleLogout}

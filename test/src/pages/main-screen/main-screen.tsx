@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import Button from '../../components/Button/Button';
 import TextField from '../../components/TextField/TextField';
 import TextArea from '../../components/TextArea/TextArea';
-import Example from '../../components/Example/Example';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { AuthorizationStatus } from '../../const';
 import InputNumber from '../../components/InputNumber/InputNumber';
 import FileDownloader from '../../components/FileDownloader/FileDownloader';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
+import KebabMenu from '../../components/KebabMenu/KebabMenu';
 
 interface MainScreenProps {
 	authorizationStatus: AuthorizationStatus;
@@ -55,6 +55,14 @@ export default function MainScreen({
 		setProgress(Number(event.target.value));
 	};
 
+	const handleEdit = () => {
+		alert('Редактировать');
+	  };
+	
+	  const handleDelete = () => {
+		alert('Удалить');
+	  };
+
 	return (
 		<div>
 			<Header
@@ -82,7 +90,6 @@ export default function MainScreen({
 				<Button text="Button" size="small" />
 				<Button text="Button" disabled />
 				<Button text="Link Button" variant="link" onClick={() => alert('Link Button Clicked')} />
-				<Example />
 				<form className="Form">
 					<TextField
 						label="Имя пользователя:"

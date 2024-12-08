@@ -19,14 +19,11 @@ export const Droppable: React.FC<DroppableProps> = ({ id, children, label }) => 
 
 
   return (
-    <div className={styles.frequencyVerification}>
       <div className={styles.droppableLabel}>
         {label}
         <div ref={setNodeRef} style={style} className={styles.droppable}>
           {children}
         </div>
       </div>
-      Частота проверки
-    </div>
   );
 };
