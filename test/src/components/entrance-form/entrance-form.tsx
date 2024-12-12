@@ -55,13 +55,15 @@ export default function EntranceForm({ onLogin }: EntranceFormProps) {
 		<div className={styles.entranceForm}>
 			<h1 className={styles.title}>Вход</h1>
 			<div className={styles.textFields}>
-				<TextField
-					label="Имя пользователя:"
-					value={formState.username}
-					onChange={handleChange('username')}
-					placeholder="Введите имя пользователя"
-				/>
-				{errors.username && <p className={styles.error}>{errors.username}</p>}
+				<div>
+					<TextField
+						label="Имя пользователя:"
+						value={formState.username}
+						onChange={handleChange('username')}
+						placeholder="Введите имя пользователя"
+					/>
+					{errors.username && <p className={styles.error}>{errors.username}</p>}
+				</div>
 				<TextField
 					label="Пароль:"
 					type="password"

@@ -81,14 +81,16 @@ export default function RegisterForm({ onLogin }: RegisterFormProps) {
 						Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/,/+/-/_.
 					</p>
 				</div>
-				<TextField
-					label="Email:"
-					type="email"
-					value={formState.email}
-					onChange={handleChange('email')}
-					placeholder="Введите email"
-				/>
-				{errors.email && <p className={styles.error}>{errors.email}</p>}
+				<div>
+					<TextField
+						label="Email:"
+						type="email"
+						value={formState.email}
+						onChange={handleChange('email')}
+						placeholder="Введите email"
+					/>
+					{errors.email && <p className={styles.error}>{errors.email}</p>}
+				</div>
 				<TextField
 					label="Пароль:"
 					type="password"
@@ -96,14 +98,18 @@ export default function RegisterForm({ onLogin }: RegisterFormProps) {
 					onChange={handleChange('password')}
 					placeholder="Введите пароль"
 				/>
-				<TextField
-					label="Подтверждение пароля:"
-					type="password"
-					value={formState.repassword}
-					onChange={handleChange('repassword')}
-					placeholder="Введите пароль ещё раз"
-				/>
-				{errors.password && <p className={styles.error}>{errors.password}</p>}
+				<div>
+					<TextField
+						label="Подтверждение пароля:"
+						type="password"
+						value={formState.repassword}
+						onChange={handleChange('repassword')}
+						placeholder="Введите пароль ещё раз"
+					/>
+					{errors.password ? 
+						<p className={styles.error}>{errors.password}</p> : 
+						<p className={styles.prompt}> Для подтверждения введите, пожалуйста, пароль ещё раз.</p>}
+				</div>
 			</div>
 			<div className={styles.actionsElements}>
 				<Button text="Зарегистрироваться" onClick={handleRegister} variant="primary" />

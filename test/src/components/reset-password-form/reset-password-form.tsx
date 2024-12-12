@@ -12,7 +12,7 @@ export default function ResetPasswordForm() {
 
 	const validateEmail = (email: string): boolean => {
 		if (!email.includes('@') || email.split('@')[1].trim() === '') {
-			setError('Неверный формат email. Убедитесь, что email содержит "@"');
+			setError('Убедитесь, что email содержит "@"');
 			return false;
 		}
 		setError(null);
@@ -29,15 +29,19 @@ export default function ResetPasswordForm() {
 	return (
 		<div className={styles.resetPasswordForm}>
 			<h1 className={styles.title}>Сброс пароля</h1>
-			<TextField
-				label="Адрес электронной почты:"
-				type="email"
-				value={email}
-				onChange={(e) => setEmail(e.target.value)}
-			/>
-			{error && <p className={styles.error}>{error}</p>}
-			<div className={styles.Button}>
-				<Button text="Отправить" onClick={handleResetPassword} variant="primary" />
+			<div className={styles.mainblock}>
+				<div>
+					<TextField
+						label="Адрес электронной почты:"
+						type="email"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+					/>
+					{error && <p className={styles.error}>{error}</p>}
+				</div>
+				<div className={styles.Button}>
+					<Button text="Отправить" onClick={handleResetPassword} variant="primary" />
+				</div>
 			</div>
 		</div>
 	);
