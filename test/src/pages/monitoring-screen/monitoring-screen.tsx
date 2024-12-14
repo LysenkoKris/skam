@@ -62,7 +62,7 @@ export default function MonitoringScreen({
   };
 
   return (
-    <div>
+    <div className='Container'>
       <Header
         authorizationStatus={authorizationStatus}
         email={email}
@@ -92,7 +92,10 @@ export default function MonitoringScreen({
                   className={`${styles.domain} ${expandedDomain === site.domain ? styles.expanded : ''}`}
                   key={index}
                 >
-                  <h5 onClick={() => handleDomainClick(site.domain)}>{site.domain} <KebabMenu domain={site.domain} onEdit={() => handleEdit(site.domain)} onDelete={() => handleDelete(site.domain)} /></h5>
+                  <div className={styles.domainHead}>
+                    <h5 onClick={() => handleDomainClick(site.domain)}>{site.domain} </h5> 
+                    <KebabMenu domain={site.domain} onEdit={() => handleEdit(site.domain)} onDelete={() => handleDelete(site.domain)} />
+                  </div>
                   {expandedDomain === site.domain && (
                     <div className={styles.domainContent}>
                       <ProgressBar value={progress} max={100} />

@@ -64,7 +64,7 @@ export default function MainScreen({
 	  };
 
 	return (
-		<div>
+		<div className='Container'>
 			<Header
 				authorizationStatus={authorizationStatus}
 				email={email}

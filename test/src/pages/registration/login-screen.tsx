@@ -1,5 +1,5 @@
 import EntranceForm from '../../components/entrance-form/entrance-form'
-import Logo from '../../components/common/Logo/Logo'
+import LogoAuth from '../../components/common/LogoAuth/LogoAuth'
 import './styles.css';
 
 interface LoginScreenProps {
@@ -9,7 +9,7 @@ interface LoginScreenProps {
 export default function LoginScreen({ onLogin }: LoginScreenProps) {
 	return (
 		<main className='Registration'>
-			<Logo />
+			<LogoAuth />
 			<EntranceForm onLogin={onLogin} />
 		</main>
 	);

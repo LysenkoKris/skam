@@ -94,9 +94,15 @@ h4 {
 
 h5 {
     margin: 0;
-    display: flex;
-    justify-content: space-between;
     font-size: 1.125rem;
     font-weight: 400;
     padding: 20px 0px;
+    width: 100%;
+    text-align: left;
+}
+
+.domainHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

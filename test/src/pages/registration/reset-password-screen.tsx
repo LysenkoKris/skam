@@ -1,11 +1,11 @@
 import ResetPasswordForm from '../../components/reset-password-form/reset-password-form'
-import Logo from '../../components/common/Logo/Logo'
+import LogoAuth from '../../components/common/LogoAuth/LogoAuth'
 import './styles.css';
 
 export default function ResetPasswordScreen() {
 	return (
 		<main className='Registration'>
-			<Logo />
+			<LogoAuth />
 			<ResetPasswordForm />
 		</main>
 	);
