@@ -1,17 +1,24 @@
 .entranceForm {
-  width: 40%;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 32px 48px;
   border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  button {
+    width: 100%;
+  }
 }
 
 .title {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 28px;
   text-align: center;
   color: #333;
 }
@@ -30,7 +37,7 @@
 }
 
 .link {
-  font-size: 14px;
+  font-size: 1rem;
   color: #007bff;
   text-decoration: none;
   transition: color 0.3s;
@@ -38,4 +45,11 @@
 
 .link:hover {
   color: #0056b3;
+}
+
+.error {
+	color: red;
+	font-size: 1rem;
+	margin: 4px 0 0 0;
+  text-align: left;
 }
