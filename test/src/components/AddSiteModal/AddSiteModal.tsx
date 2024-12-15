@@ -12,15 +12,17 @@ import InputNumber from '../InputNumber/InputNumber';
 interface AddSiteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddSite: (domain: string, subdomains: string[]) => void;
+  onAddSite: (domain: string, subdomains: { [key: string]: string | null }, valueOne: number, valueTwo: number) => void;
 }
 
-export default function AddSiteModal({ isOpen, onClose, onAddSite }:AddSiteModalProps) {
+export default function AddSiteModal({ isOpen, onClose, onAddSite }: AddSiteModalProps) {
   const [domain, setDomain] = useState('');
   const [subdomains, setSubdomains] = useState<{ [key: string]: string | null }>({});
   const [customSubdomains, setCustomSubdomains] = useState('');
   const [subdomainsFetched, setSubdomainsFetched] = useState(false);
   const [validationError, setValidationError] = useState('');
+  const [valueOne, setValueOne] = useState(1);
+  const [valueTwo, setValueTwo] = useState(3);
 
   const handleDomainChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDomain(event.target.value);
@@ -78,30 +80,23 @@ export default function AddSiteModal({ isOpen, onClose, onAddSite }:AddSiteModal
   };
 
   const handleAddSite = () => {
-    const droppable1Subdomains = Object.keys(subdomains).filter((key) => subdomains[key] === 'droppable1');
-    const droppable2Subdomains = Object.keys(subdomains).filter((key) => subdomains[key] === 'droppable2');
-    onAddSite(domain, [...droppable1Subdomains, ...droppable2Subdomains]);
-    // Чистка состояния после добавления сайта
+    onAddSite(domain, subdomains, valueOne, valueTwo);
     setDomain('');
     setSubdomains({});
     setCustomSubdomains('');
     setSubdomainsFetched(false);
-    onClose();
     setValueOne(1);
     setValueTwo(3);
+    onClose();
   };
 
-  const [valueOne, setValueOne] = useState(1);
+  const handleChangeOne = (newValueOne: number) => {
+    setValueOne(newValueOne);
+  };
 
-	const handleChangeOne = (newValueOne: number) => {
-		setValueOne(newValueOne);
-	};
-
-  const [valueTwo, setValueTwo] = useState(3);
-
-	const handleChangeTwo = (newValueTwo: number) => {
-		setValueTwo(newValueTwo);
-	};
+  const handleChangeTwo = (newValueTwo: number) => {
+    setValueTwo(newValueTwo);
+  };
 
   const isAddSiteButtonDisabled = Object.values(subdomains).every((value) => value === null);
   const isGetSubdomainsButtonDisabled = !domain;
@@ -113,7 +108,7 @@ export default function AddSiteModal({ isOpen, onClose, onAddSite }:AddSiteModal
       <div className={styles.modalContent}>
         <div className={styles.modalHeading}>
           <h2>Добавление сайта на мониторинг</h2>
-          <img src={close} onClick={onClose}/>
+          <img src={close} onClick={onClose} />
         </div>
         <div className={styles.content}>
           <div className={styles.receivingDomains}>
@@ -191,4 +186,4 @@ export default function AddSiteModal({ isOpen, onClose, onAddSite }:AddSiteModal
       </div>
     </div>
   );
-};
+}
