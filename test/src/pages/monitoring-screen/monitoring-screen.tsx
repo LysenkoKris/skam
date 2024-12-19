@@ -6,9 +6,7 @@ import styles from './monitoring-screen.module.css';
 import Button from '../../components/Button/Button';
 import Footer from '../../components/Footer/Footer';
 import AddSiteModal from '../../components/AddSiteModal/AddSiteModal';
-import KebabMenu from '../../components/KebabMenu/KebabMenu';
-import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import FileDownloader from '../../components/FileDownloader/FileDownloader';
+import MonitoringDomain from '../../components/MonitoringDomain/MonitoringDomain';
 
 interface MonitoringScreenProps {
   authorizationStatus: AuthorizationStatus;
@@ -26,7 +24,12 @@ export default function MonitoringScreen({
     { label: 'Мониторинг доменов' },
   ];
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sites, setSites] = useState<{ domain: string; subdomains: string[] }[]>([]);
+  const [sites, setSites] = useState<{
+    domain: string;
+    subdomains: { [key: string]: string | null }; // Объект с состоянием поддоменов
+    valueOne: number;
+    valueTwo: number;
+  }[]>([]);
   const [expandedDomain, setExpandedDomain] = useState<string | null>(null);
 
   const handleOpenModal = () => {
@@ -37,12 +40,12 @@ export default function MonitoringScreen({
     setIsModalOpen(false);
   };
 
-  const handleAddSite = (domain: string, subdomains: string[]) => {
-    setSites([...sites, { domain, subdomains }]);
+  const handleAddSite = (domain: string, subdomains: { [key: string]: string | null }, valueOne: number, valueTwo: number) => {
+    setSites([...sites, { domain, subdomains, valueOne, valueTwo }]);
   };
 
-  const handleEdit = (domain: string) => {
-    alert(`Редактировать ${domain}`);
+  const handleEdit = (domain: string, subdomains: { [key: string]: string | null }, valueOne: number, valueTwo: number) => {
+    setSites(sites.map((site) => (site.domain === domain ? { ...site, subdomains, valueOne, valueTwo } : site)));
   };
 
   const handleDelete = (domain: string) => {
@@ -62,7 +65,7 @@ export default function MonitoringScreen({
   };
 
   return (
-    <div>
+    <div className='Container'>
       <Header
         authorizationStatus={authorizationStatus}
         email={email}
@@ -88,23 +91,19 @@ export default function MonitoringScreen({
             <AddSiteModal isOpen={isModalOpen} onClose={handleCloseModal} onAddSite={handleAddSite} />
             <div className={styles.monitoringDomains}>
               {sites.map((site, index) => (
-                <div
-                  className={`${styles.domain} ${expandedDomain === site.domain ? styles.expanded : ''}`}
-                  key={index}
-                >
-                  <h5 onClick={() => handleDomainClick(site.domain)}>{site.domain} <KebabMenu domain={site.domain} onEdit={() => handleEdit(site.domain)} onDelete={() => handleDelete(site.domain)} /></h5>
-                  {expandedDomain === site.domain && (
-                    <div className={styles.domainContent}>
-                      <ProgressBar value={progress} max={100} />
-                      <div className={styles.subdomains}>
-                        {site.subdomains.map((subdomain, subIndex) => (
-                          <div className={styles.subdomain} key={subIndex}>{subdomain}</div>
-                        ))}
-                      </div>
-                      <FileDownloader files={files} />
-                    </div>
-                  )}
-                </div>
+                <MonitoringDomain
+                key={index}
+                domain={site.domain}
+                subdomains={site.subdomains} // Объект с состоянием поддоменов
+                progress={progress}
+                files={files}
+                expandedDomain={expandedDomain}
+                onDomainClick={handleDomainClick}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+                valueOne={site.valueOne}
+                valueTwo={site.valueTwo}
+              />
               ))}
             </div>
           </div>

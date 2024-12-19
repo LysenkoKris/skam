@@ -100,7 +100,7 @@ export default function ComparisonScreen({
 	};
 
 	return (
-		<div>
+		<div className='Container'>
 			<Header
 				authorizationStatus={authorizationStatus}
 				email={email}

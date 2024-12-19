@@ -1,5 +1,5 @@
 import RegisterForm from '../../components/register-form/register-form'
-import Logo from '../../components/common/Logo/Logo'
+import LogoAuth from '../../components/common/LogoAuth/LogoAuth'
 import './styles.css';
 
 interface RegisterScreenProps {
@@ -9,7 +9,7 @@ interface RegisterScreenProps {
 export default function RegisterScreen({ onLogin }: RegisterScreenProps) {
 	return (
 		<main className='Registration'>
-			<Logo />
+			<LogoAuth />
 			<RegisterForm onLogin={onLogin} />
 		</main>
 	);

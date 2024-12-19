@@ -1,9 +1,3 @@
-.droppables {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-}
-
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -15,7 +9,7 @@
     justify-content: center;
     align-items: flex-start;
     overflow-y: auto;
-    z-index: 1000; 
+    z-index: 1000;
   }
   
   .modalContent {
@@ -32,32 +26,25 @@
     gap: 28px;
     margin: 5vh 8vw;
   }
-
+  
   .content {
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
   
-.titleSubdomains {
+  .titleSubdomains {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-
-    span {
-        font-size: 1.25rem;
-        font-weight: 500;
-    }
-}
-  
-  .droppableLabel {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
   }
-
-
+  
+  .titleSubdomains span {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
   .subdomains {
     display: flex;
     flex-wrap: wrap;
@@ -66,81 +53,88 @@
     overflow-y: auto;
     overflow-x: hidden;
     align-content: flex-start;
-}
-
-.dndContent {
+  }
+  
+  .dndContent {
     display: flex;
     flex-direction: column;
     gap: 24px;
-}
-
-.receivingDomains {
+  }
+  
+  .receivingDomains {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-
-    button {
-        width: 100%;
-        max-width: 238px;
-    }
-}
-
-.addingDomains {
+  }
+  
+  .receivingDomains button {
+    width: 100%;
+    max-width: 238px;
+  }
+  
+  .addingDomains {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
     gap: 16px;
-
-    button {
-        width: 100%;
-        max-width: 132px;
-    }
-}
-
-.noSubdomains {
+  }
+  
+  .addingDomains button {
+    width: 100%;
+    max-width: 132px;
+  }
+  
+  .noSubdomains {
     font-size: 16px;
     color: rgb(50, 50, 50, 0.4);
-}
-
-.modalButtons {
+  }
+  
+  .modalButtons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
-}
-
-.validationError {
+  }
+  
+  .validationError {
     margin: 0;
     text-align: justify;
     font-size: 1.125rem;
     color: #FF3939;
     font-weight: 500;
-}
-
-.modalHeading {
+  }
+  
+  .modalHeading {
     display: flex;
     justify-content: space-between;
-    img {
-        cursor: pointer;
-    }
-}
-
-.frequencyVerification {
+  }
+  
+  .modalHeading img {
+    cursor: pointer;
+  }
+  
+  .frequencyVerification {
     display: flex;
     flex-direction: column;
     width: 50%;
     gap: 16px;
     font-size: 1rem;
     font-weight: 500;
-}
-
-.numberVerification {
+  }
+  
+  .numberVerification {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
+  }
+  
+  .droppables {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }

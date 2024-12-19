@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './KebabMenu.module.css';
 import kebab from '../../assets/kebab.svg';
 import del from '../../assets/Delete.svg';
@@ -14,6 +14,7 @@ interface KebabMenuProps {
 const KebabMenu: React.FC<KebabMenuProps> = ({ domain, onEdit, onDelete }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -40,8 +41,22 @@ const KebabMenu: React.FC<KebabMenuProps> = ({ domain, onEdit, onDelete }) => {
     setIsDeleteModalOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.kebabMenuContainer}>
+    <div className={styles.kebabMenuContainer} ref={menuRef}>
       <button className={styles.kebabButton} onClick={handleToggle}>
         <img src={kebab} alt="kebab" />
       </button>

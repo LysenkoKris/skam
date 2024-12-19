@@ -1,9 +1,7 @@
 .Registration {
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
-	padding: 40px 6vw;
-	height: 100%;
-  justify-content: center;
+	gap: 3vh;
+	padding: 3vh 6vw;
   align-items: center;
 }
